@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAHUL YADAV - DEVELOPER & DESIGNER</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/skins/color-1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- =========Main Container File=========== -->
+    <div class="main-container">
+        <!-- ==========Aside Starts=========== -->
+        <div class="aside">
+            <div class="logo"><img src="image/name2.png" alt=""></div>
+                <nav>
+                    <ul id="sidemenu">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/portfolio.html">Works</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <i class="fa fa-times" onclick="closemenu()"></i>
+                    </ul>
+                    <i class="fa fa-bars" onclick="openmenu()"></i>
+                </nav>
+        </div>
+        <!-- =========Aside Ends========== -->
+        <!-- ========main Content starts======== -->
+        <div class="main-content">
+            <!-- =============Home Section Starts============ -->
+            <section class="home section">
+                <div class="container">
+                    <div class="row">
+                        <div class="home-info" padd-15>
+                            <h3 class="hello">Hello, My name is <span class="name">Rahul Kumar Yadav</span></h3>
+                            <h3 class="my-proffession">I' m a <span class="typing">Developer & Designer</span></h3>
+                            <p>I'm Rahul Kumar Yadav and i'm passionate about implementing and launching new projects.
+                            </p>
+                            <a href="/contact.html" class="btn">Contact Me</a>
+                        </div>
+                        <div class="home-img" padd-15>
+                            <img src="image/user.JPG" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ============home Section Ends========== -->
+        </div>
+        <!-- ==============Main content ends============ -->
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyRIrjaao1fid2YiBGOuToiozCzIWnhuUTd0S4aXffdqVpHDETeRIaCZnVAUJHf_aVlxA/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Message sent successfully"
+                    setTimeout(function () {
+                        msg.innerHTML = ""
+                    }, 5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+    <script>
+        var sidemeu = document.getElementById("sidemenu");
+
+        function openmenu(){
+            sidemeu.style.right = "0";
+        }
+        function closemenu(){
+            sidemeu.style.right = "-200px";
+        }
+    </script>
+    <!-- ============Main Container Ends============= -->
+</body>
+
+</html>

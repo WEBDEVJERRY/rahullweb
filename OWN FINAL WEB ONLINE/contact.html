@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAHUL YADAV - DEVELOPER & DESIGNER</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/skins/color-1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- =========Main Container File=========== -->
+    <div class="main-container">
+        <!-- ==========Aside Starts=========== -->
+        <div class="aside">
+            <div class="logo">
+                <img src="image/name2.png" alt="">
+            </div>
+                <nav>
+                    <ul id="sidemenu">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/portfolio.html">Works</a></li>
+                        <li><a href="/contact.html">Contacts</a></li>
+                        <i class="fa fa-times" onclick="closemenu()"></i>
+                    </ul>
+                    <i class="fa fa-bars" onclick="openmenu()"></i>
+                </nav>
+            </div>
+        <!-- =========Aside Ends========== -->
+        <!-- ========main Content starts======== -->
+        <div class="main-content">
+            <!-- ==========contact section starts============= -->
+            <section class="contact section">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2>CONTACT ME</h2>
+                        </div>
+                        <div class="social-items padd-15">
+                            <a href="https://www.facebook.com/people/Rahul-Yadav/100004551105063/" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href=""><i class="fab fa-twitter-square"></i></a>
+                            <a href="https://www.instagram.com/iam_rahulyadav_/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/rahul-kumar-yadav-a0236a22a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        </div>  
+                    </div>
+                    <h3 class="contact-title padd-15">HAVE YOU ANY QUESTION ?</h3>
+                    <h4 class="contact-sub-title padd-15">I'M AT YOUR SERVICE</h4>
+                    <div class="row">
+                        <!-- ========Contatc info item start========= -->
+                        <div class="contact-info-item padd-15">
+                            <div class="icon"><i class="fa fa-phone"></i></div>
+                            <h4>Call Me On</h4>
+                            <p>+91 8252549237</p>
+                        </div>
+                        <!-- ========Contatc info item ends========= -->
+                        <!-- ========Contatc info item start========= -->
+                        <div class="contact-info-item padd-15">
+                            <div class="icon"><i class="fa fa-envelope"></i></div>
+                            <h4>Email</h4>
+                            <p>rahuljerry543@gmail.com</p>
+                        </div>
+                        <!-- ========Contatc info item ends========= -->
+                    </div>
+                    <h3 class="contact-title padd-15">SEND ME AN EMAIL</h3>
+                    <h4 class="contact-sub-title padd-15">I'M VERY RESPONSIVE TO MESSAGE</h4>
+                    <!-- ==========contact form============ -->
+                    <form name="submit-to-google-sheet">
+                        <div class="row">
+                            <div class="contact-form padd-15">
+                                <div class="row">
+                                    <div class="form-item col-6 padd-15">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="Name" placeholder="Your name">
+                                        </div>
+                                    </div>
+                                    <div class="form-item col-6 padd-15">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" name="Email"
+                                                placeholder="Your email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <textarea name="Message" class="form-control" id=""
+                                                placeholder="Your message"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <button type="submit" class="btn">Send Message</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </section>
+            <!-- ============contact section ends=============== -->
+        </div>
+        <!-- ==============Main content ends============ -->
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyRIrjaao1fid2YiBGOuToiozCzIWnhuUTd0S4aXffdqVpHDETeRIaCZnVAUJHf_aVlxA/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Message sent successfully"
+                    setTimeout(function () {
+                        msg.innerHTML = ""
+                    }, 5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+<script>
+    var sidemeu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemeu.style.right = "0";
+    }
+    function closemenu(){
+        sidemeu.style.right = "-200px";
+    }
+</script>
+    <!-- ============Main Container Ends============= -->
+</body>
+
+</html>
